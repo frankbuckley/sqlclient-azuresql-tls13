@@ -6,9 +6,10 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         sdk-version: ["8.0.301"]
-        os: [windows-latest]
+        os: [ubuntu-22.04,ubuntu-24.04,windows-latest,macos-latest]
 
     runs-on: ${{ matrix.os }}
 
