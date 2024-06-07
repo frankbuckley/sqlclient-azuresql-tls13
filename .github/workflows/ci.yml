@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        sdk-version: ["8.0.301"]
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.sdk-version }}
+
+      - name: Build
+        run: dotnet build
+
+      - name: Test
+        run: dotnet test --no-build
