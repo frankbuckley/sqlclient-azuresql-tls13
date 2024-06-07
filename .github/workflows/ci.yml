@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         sdk-version: ["8.0.206", "8.0.301"]
-        os: [ubuntu-22.04,ubuntu-24.04,windows-latest,macos-latest]
+        os: [ubuntu-22.04,ubuntu-24.04,windows-2022,macos-14]
 
     runs-on: ${{ matrix.os }}
 
